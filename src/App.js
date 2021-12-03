@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import BarChart from "./BarChart";
 
 function App() {
+  const [data, setData] = useState([12, 5, 6, 6, 9, 10]);
+  const [width, setWidth] = useState(1000);
+  const [height, setHeight] = useState(500);
+  const id = document.getElementById('root') 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BarChart data={data} width={width} height={height} />
     </div>
   );
 }
