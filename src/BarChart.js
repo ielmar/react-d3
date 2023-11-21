@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import * as d3 from "d3";
 
-export default function BarChart({data, width, height, id }) {
-  const drawChart = () => {
-
+export default function BarChart({ data, width, height }) {
+  useEffect(() => {
     const svg = d3
       .select("body")
       .append("svg")
-      .attr("wdith", width)
+      .attr("width", width)
       .attr("height", height);
 
     svg
@@ -29,11 +28,7 @@ export default function BarChart({data, width, height, id }) {
       .text((d) => d)
       .attr("x", (d, i) => i * 70)
       .attr("y", (d, i) => height - 10 * d - 3);
-  };
+  }, [data, width, height]);
 
-  useEffect(() => {
-    drawChart();
-  }, []);
-
-  return <div id={"#" + id}></div>;
+  return <div></div>;
 }
